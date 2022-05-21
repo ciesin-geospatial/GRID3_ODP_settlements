@@ -117,9 +117,9 @@ def left_spatial_join(gdf1, gdf2):
         joined = joined.drop(['index_right'], axis=1)
     return joined
     
-def add_intersection_count_column(gdf, uuid_column, buffer_column, new_layer, new_column, geom_column = 'geometry', new_layer_geom_column = 'geometry', default_right_index = 'index_right'):
-    temp = gpd.sjoin(gdf.set_geometry(buffer_column), new_layer[[new_layer_geom_column]], how='left').dropna(subset=[default_right_index])
-    uuid_to_intersection_count_mapping = temp.groupby(uuid_column)[default_right_index].count().to_dict()
+def add_intersection_count_column(gdf, uuid_column, buffer_column, feature_layer, new_column, feature_geom_column = 'geometry'):
+    temp = gpd.sjoin(gdf.set_geometry(buffer_column), feature_layer[[feature_geom_column]], how='left').dropna(subset=['index_right'])
+    uuid_to_intersection_count_mapping = temp.groupby(uuid_column)['index_right'].count().to_dict()
     gdf[new_column] = gdf[uuid_column].map(uuid_to_intersection_count_mapping).fillna(0).apply(int)
     return gdf
 
@@ -191,7 +191,7 @@ def get_raster_value_distribution(gdf, geom_column, uuid_column, geotiff_filepat
             
             data_rows.append((uuid, label_count_mapping))
     
-    data_df = pd.DataFrame(data_rows, columns=[uuid_column,'label_count_mapping'])
+    data_df = pd.DataFrame(data_rows, columns=[id_column,'label_count_mapping'])
     label_count_df = pd.json_normalize(data_df['label_count_mapping'])
     label_count_df.columns = label_marker+'__'+label_count_df.columns
     if normalize:
@@ -242,8 +242,8 @@ def add_distance_to_nearest_neighbor_column(gdf, geom_centroid_column, new_colum
     return gdf
 
 
-def get_groupby_stats_df(gdf, groupby_column, stats_map):
-    stats_df = gdf.groupby(groupby_column).agg(stats_map)
+def get_groupby_stats_df(data, groupby_column, stats_map):
+    stats_df = data.groupby(groupby_column).agg(stats_map)
     stats_df.columns = ['__'.join(col).strip() for col in stats_df.columns.values]
     return stats_df
 

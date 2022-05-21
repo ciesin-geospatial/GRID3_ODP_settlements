@@ -4,9 +4,9 @@
 
 ***Table of contents***
 
-1. Data Collection
-2. Feature Engineering
-3. False Positive Classification
+1. Data Collection (OSM)
+2. Feature Engineering (Land Cover, Land Use, Road Connectivity, Dispersion, Building Features)
+3. False Positive Classification with Machine Learning
 
 ---
 
