@@ -191,7 +191,7 @@ def get_raster_value_distribution(gdf, geom_column, uuid_column, geotiff_filepat
             
             data_rows.append((uuid, label_count_mapping))
     
-    data_df = pd.DataFrame(data_rows, columns=[id_column,'label_count_mapping'])
+    data_df = pd.DataFrame(data_rows, columns=[uuid_column,'label_count_mapping'])
     label_count_df = pd.json_normalize(data_df['label_count_mapping'])
     label_count_df.columns = label_marker+'__'+label_count_df.columns
     if normalize:
