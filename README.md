@@ -27,15 +27,15 @@ After hyperparameter tuning, the trained XGBoost classifier achieves an F1 score
 The trained model are then applied to predict the false-positive probability of all 650,000+ hamlet settlements in Zambia. Visualizations on national, regional, and local scales show that the probability estimation is plausible and useful in identifying likely false positives for verification.
 
 
-| ![National distribution of possible false-positive hamlets](./assets/zambia map of potential false positive hamlets.png) | 
+| ![National distribution of possible false-positive hamlets](./assets/national.png) | 
 |:--:| 
 | National distribution of possible false-positive hamlets (red means higher probability) |
 
-| ![Regional visualization of possible false-positive hamlets](./assets/zambia map of potential false positive hamlets - regional.png) | 
+| ![Regional visualization of possible false-positive hamlets](./assets/regional.png) | 
 |:--:| 
 | Regional visualization of possible false-positive hamlets (note the hamlets in swamp areas) |
 
-| ![Visual inspection of likely false-positive hamlets](./assets/zambia potential false positive hamlets visual inspection.png) | 
+| ![Visual inspection of likely false-positive hamlets](./assets/local.png) | 
 |:--:| 
 | Example of false-positive hamlets found during visual inspection of hamlets with high probability|
 
