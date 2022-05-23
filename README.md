@@ -20,6 +20,27 @@ This toolset is developed by Guangyu (Tim) Wu during his research assistantship 
 
 ---
 
+***Results***
+
+After hyperparameter tuning, the trained XGBoost classifier achieves an F1 score of 0.8 and AUC of 0.854 on the test set. 
+
+The trained model are then applied to predict the false-positive probability of all 650,000+ hamlet settlements in Zambia. Visualizations on national, regional, and local scales show that the probability estimation is plausible and useful in identifying likely false positives for verification.
+
+
+| ![National distribution of possible false-positive hamlets](./assets/zambia map of potential false positive hamlets.png) | 
+|:--:| 
+| National distribution of possible false-positive hamlets (red means higher probability) |
+
+| ![Regional visualization of possible false-positive hamlets](./assets/zambia map of potential false positive hamlets - regional.png) | 
+|:--:| 
+| Regional visualization of possible false-positive hamlets (note the hamlets in swamp areas) |
+
+| ![Visual inspection of likely false-positive hamlets](./assets/zambia potential false positive hamlets visual inspection.png) | 
+|:--:| 
+| Example of false-positive hamlets found during visual inspection of hamlets with high probability|
+
+---
+
 ***List of utility functions***
 
 Function `read_csv_as_gpd`
