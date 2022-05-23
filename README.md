@@ -8,13 +8,15 @@ The toolset presented in this repository aims to predict the possibility that a 
 
 The generation of candidate settlements is based on image analysis of high-resolution satellite imagery data, which will not be covered in this repo. The toolset here will take in potential settlements and help predict which ones are likely to be false positives. False negatives (actual settlements that are missed in the generation stage) will not be discovered, so it is preferable to be more lenient during the generation process and allow more candidates to be considered in this subsequent filtering stage. It is worth noting that this toolset is developed with small settlements (hamlet or village level) in mind, taking advantage of their relatively smaller scope and simpler geometric shape. However, components of the toolset can be transferred to the filtering of larger settlements, or other related geospatial analysis.
 
+This toolset is developed by Guangyu (Tim) Wu during his research assistantship at Columbia University CIESIN GRID3 project. Special thanks to Jolynn Schmidt and Hasim Engin for their feedback and guidance during the development process, as well as to colleagues at GRID3 for creating the initial data products. 
+
 ---
 
 ***Notebooks***
 
 1. Data Collection (OSM)
 2. Feature Engineering (Land Cover, Land Use, Road Connectivity, Dispersion, Building Features)
-3. False Positive Classification with Machine Learning
+3. False Positive Classification with Machine Learning (XGBoost)
 
 ---
 
